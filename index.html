@@ -1238,7 +1238,7 @@
       <div class="hero-overlay"></div>
 
       <div class="hero-inner">
-        <div class="reveal in-view">
+        <div class="hero-panel reveal in-view">
           <div class="hero-tag">
             <span class="hero-tag-pill">Frente mar • Mediterrâneo</span>
             Refúgio com piscina infinita e pôr do sol dourado
@@ -1317,6 +1317,40 @@
         </aside>
       </div>
     </section>
+
+    .hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.25), rgba(15, 23, 42, 0.45)),
+    linear-gradient(to right, rgba(248, 250, 252, 0.92), rgba(248, 250, 252, 0.55) 45%, rgba(15, 23, 42, 0.25));
+  mix-blend-mode: multiply;
+}
+
+.hero-panel {
+  background: radial-gradient(circle at left, rgba(248, 250, 252, 0.98), rgba(248, 250, 252, 0.85) 55%, rgba(248, 250, 252, 0.1));
+  padding: 22px 24px 20px;
+  border-radius: 26px;
+  box-shadow: 0 28px 70px rgba(15, 23, 42, 0.35);
+  backdrop-filter: blur(8px);
+}
+
+.hero-title {
+  text-shadow: none; /* tira aquele sombreado pesado */
+}
+
+.hero-subtitle,
+.hero-note {
+  color: #4b5563;
+}
+
+@media (max-width: 768px) {
+  .hero-panel {
+    padding: 18px 16px 18px;
+    border-radius: 20px;
+  }
+}
 
     <!-- INTRO / HIGHLIGHTS -->
     <section class="intro">
@@ -1721,3 +1755,4 @@
   </script>
 </body>
 </html>
+
