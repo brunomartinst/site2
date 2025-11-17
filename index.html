@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Luminosa Bay Hotel – Refúgio à Beira-Mar no Mediterrâneo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Hotel à beira-mar inspirado no Mediterrâneo, com vista infinita para o mar, piscina, gastronomia autoral e experiências de bem-estar. Reserve dias inesquecíveis." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-body: #f5f3ef;
+      --bg-soft: #ffffff;
+      --bg-soft-alt: #fdf8f3;
+      --bg-muted: #eef2f7;
+      --accent: #0f766e;
+      --accent-soft: rgba(15, 118, 110, 0.14);
+      --accent-gold: #f59e0b;
+      --accent-gold-soft: rgba(245, 158, 11, 0.18);
+      --text-main: #111827;
+      --text-soft: #6b7280;
+      --border-soft: rgba(148, 163, 184, 0.4);
+      --radius-lg: 22px;
+      --radius-xl: 30px;
+      --shadow-soft: 0 22px 60px rgba(15, 23, 42, 0.15);
+      --shadow-subtle: 0 16px 40px rgba(15, 23, 42, 0.12);
+      --max-width: 1180px;
+      --transition-fast: 0.2s ease-out;
+      --transition-med: 0.35s ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top left, #fdf8f3 0%, #f5f3ef 40%, #e5edf7 100%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.7;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* HEADER */
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 40;
+      backdrop-filter: blur(20px);
+      background: linear-gradient(to bottom,
+        rgba(248, 250, 252, 0.96),
+        rgba(248, 250, 252, 0.9),
+        transparent
+      );
+      border-bottom: 1px solid rgba(209, 213, 219, 0.7);
+    }
+
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 14px 24px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 15% 0, #facc15, #f97316 35%, #0f766e 90%);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f9fafb;
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .logo-text-main {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .logo-text-sub {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-soft);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .nav a {
+      position: relative;
+      color: #4b5563;
+      padding-bottom: 4px;
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(to right, var(--accent), var(--accent-gold));
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform var(--transition-fast), opacity var(--transition-fast);
+      opacity: 0;
+    }
+
+    .nav a:hover {
+      color: var(--text-main);
+    }
+
+    .nav a:hover::after {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+
+    .nav-cta {
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 118, 110, 0.4);
+      background: radial-gradient(circle at 0 0, rgba(15, 118, 110, 0.18), rgba(15, 23, 42, 0.03));
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 500;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.1);
+      transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .nav-cta-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.3);
+    }
+
+    .nav-cta:hover {
+      background: radial-gradient(circle at 0 0, rgba(15, 118, 110, 0.26), rgba(15, 23, 42, 0.06));
+      transform: translateY(-1px);
+      box-shadow: 0 16px 35px rgba(15, 23, 42, 0.18);
+    }
+
+    .nav-toggle {
+      display: none;
+      border: none;
+      background: transparent;
+      padding: 6px;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      border-radius: 999px;
+      background: #111827;
+      margin-bottom: 4px;
+    }
+
+    /* HERO */
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      padding-top: 96px;
+      padding-bottom: 60px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: scale(1.04);
+      transition: opacity 1.4s ease-out, transform 12s linear;
+      background-position: center;
+      background-size: cover;
+      will-change: transform;
+    }
+
+    .hero-slide.is-active {
+      opacity: 1;
+      transform: scale(1.08);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.28), rgba(15, 23, 42, 0.35)),
+        linear-gradient(to right, rgba(248, 250, 252, 0.72), rgba(248, 250, 252, 0.26));
+      mix-blend-mode: multiply;
+    }
+
+    .hero-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 3.1fr) minmax(0, 2.4fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 4px 12px 4px 4px;
+      border-radius: 999px;
+      background: rgba(248, 250, 252, 0.9);
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--text-soft);
+      margin-bottom: 16px;
+    }
+
+    .hero-tag-pill {
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), #0ea5e9);
+      color: #f9fafb;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 46px;
+      line-height: 1.08;
+      margin: 0 0 18px;
+      color: #0b1120;
+      text-shadow: 0 16px 40px rgba(148, 163, 184, 0.55);
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      max-width: 520px;
+      color: #4b5563;
+      margin-bottom: 22px;
+    }
+
+    .hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 22px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .hero-chip {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      color: #6b7280;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #0f766e, #0ea5e9);
+      color: #f9fafb;
+      font-size: 14px;
+      font-weight: 500;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.4);
+      transform: translateY(0);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.55);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      background: rgba(248, 250, 252, 0.92);
+      color: #374151;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .btn-secondary:hover {
+      background: #e5edf7;
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      font-size: 11px;
+      color: #4b5563;
+    }
+
+    .hero-note strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: var(--radius-xl);
+      padding: 18px 18px 16px;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 12px;
+      color: #4b5563;
+    }
+
+    .hero-rating {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .hero-rating-value {
+      font-size: 24px;
+      font-weight: 600;
+      color: #0b1120;
+    }
+
+    .hero-rating-label {
+      font-size: 11px;
+      color: #6b7280;
+    }
+
+    .hero-badges-small {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: flex-end;
+    }
+
+    .hero-badge-small {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--bg-soft-alt);
+      border: 1px solid rgba(229, 231, 235, 1);
+    }
+
+    .hero-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .hero-detail {
+      padding: 10px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(15, 118, 110, 0.06), rgba(255, 255, 255, 0.7));
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      font-size: 11px;
+      line-height: 1.4;
+      color: #4b5563;
+    }
+
+    .hero-detail strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: #0b1120;
+      margin-bottom: 3px;
+    }
+
+    .hero-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 11px;
+      color: #6b7280;
+    }
+
+    .hero-avatar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-avatar-img {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+    }
+
+    .hero-avatar-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-avatar-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .hero-avatar-name {
+      font-size: 11px;
+      font-weight: 500;
+      color: #111827;
+    }
+
+    /* SECTIONS / GLOBAL */
+
+    section {
+      padding: 88px 0;
+      position: relative;
+    }
+
+    .section-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--text-soft);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      margin: 0 0 12px;
+      color: #0b1120;
+    }
+
+    .section-subtitle {
+      font-size: 14px;
+      color: var(--text-soft);
+      max-width: 580px;
+      margin-bottom: 32px;
+    }
+
+    /* REVEAL ANIMATIONS */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity var(--transition-med), transform var(--transition-med);
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 0.12s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 0.28s;
+    }
+
+    /* INTRO / HIGHLIGHTS */
+
+    .intro {
+      background: radial-gradient(circle at top, #ffffff 0%, #f5f3ef 55%, #edf1f9 100%);
+    }
+
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .highlight-card {
+      padding: 18px 18px 16px;
+      border-radius: var(--radius-lg);
+      background: var(--bg-soft);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .highlight-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .highlight-title {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: #111827;
+    }
+
+    .highlight-text {
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    /* ROOMS */
+
+    .rooms {
+      background: linear-gradient(to bottom, #fdf8f3 0%, #f5f3ef 45%, #eef2f7 100%);
+    }
+
+    .rooms-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .room-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--bg-soft);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-subtle);
+      display: flex;
+      flex-direction: column;
+      transform: translateY(0);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .room-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-soft);
+      border-color: rgba(15, 118, 110, 0.45);
+    }
+
+    .room-media {
+      position: relative;
+      max-height: 220px;
+      overflow: hidden;
+    }
+
+    .room-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+
+    .room-card:hover .room-media img {
+      transform: scale(1.06);
+    }
+
+    .room-tag {
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(248, 250, 252, 0.94);
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #374151;
+    }
+
+    .room-body {
+      padding: 14px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .room-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: #111827;
+    }
+
+    .room-meta {
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .room-footer {
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 12px;
+    }
+
+    .room-price {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .room-cta {
+      font-size: 12px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      background: var(--bg-soft-alt);
+      cursor: pointer;
+      transition: background var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .room-cta:hover {
+      background: #e5edf7;
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    /* DINING / EXPERIENCES */
+
+    .dining {
+      background: radial-gradient(circle at top, #eef2f7 0%, #f5f3ef 45%, #fdf8f3 100%);
+    }
+
+    .dining-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.5fr);
+      gap: 26px;
+      align-items: center;
+    }
+
+    .dining-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: 160px 120px;
+      gap: 10px;
+    }
+
+    .dining-img {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.18);
+    }
+
+    .dining-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: transform 1.1s ease;
+    }
+
+    .dining-img:nth-child(1) {
+      grid-row: span 2;
+    }
+
+    .dining-img:hover img {
+      transform: scale(1.08);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 10px;
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .dining-list {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+      margin-bottom: 18px;
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .dining-item {
+      padding: 10px 12px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(229, 231, 235, 1);
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .dining-item strong {
+      color: #111827;
+      font-weight: 500;
+    }
+
+    .dining-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9ca3af;
+      white-space: nowrap;
+    }
+
+    /* WELLNESS / EXPERIENCES GRID */
+
+    .experiences {
+      background: radial-gradient(circle at top, var(--accent-soft) 0%, #f5f3ef 48%, #fdf8f3 100%);
+    }
+
+    .experiences-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .exp-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: var(--shadow-subtle);
+      padding: 16px 16px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .exp-meta {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+    }
+
+    .exp-title {
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .exp-text {
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .exp-footer {
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    .exp-cta {
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(209, 213, 219, 1);
+      background: #f9fafb;
+      cursor: pointer;
+      transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .exp-cta:hover {
+      background: #e5edf7;
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    /* GALLERY */
+
+    .gallery {
+      background: radial-gradient(circle at top, #eef2f7 0%, #f5f3ef 55%, #ffffff 100%);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.18);
+      height: 140px;
+    }
+
+    .gallery-item:nth-child(1),
+    .gallery-item:nth-child(4) {
+      grid-row: span 2;
+      height: 290px;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.04);
+      transition: transform 1.1s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.12);
+    }
+
+    .gallery-badge {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.7);
+      color: #f9fafb;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    /* LOCATION & CONTACT */
+
+    .location {
+      background: radial-gradient(circle at top, var(--accent-gold-soft) 0%, #fdf8f3 52%, #eef2f7 100%);
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.8fr);
+      gap: 26px;
+      align-items: flex-start;
+    }
+
+    .contact-card {
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid var(--border-soft);
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow-subtle);
+      font-size: 13px;
+    }
+
+    .contact-row {
+      margin-bottom: 10px;
+    }
+
+    .contact-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-soft);
+      margin-bottom: 4px;
+    }
+
+    .contact-value {
+      color: var(--text-main);
+    }
+
+    .contact-value a {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .map-shell {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: linear-gradient(to bottom, #0f172a, #022c22);
+      position: relative;
+      box-shadow: var(--shadow-soft);
+      min-height: 260px;
+    }
+
+    .map-bg {
+      position: absolute;
+      inset: 0;
+      opacity: 0.72;
+      background-image: url("https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+      background-size: cover;
+      background-position: center;
+      filter: saturate(1.2) contrast(1.05);
+    }
+
+    .map-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(15, 118, 110, 0.38), rgba(15, 23, 42, 0.9));
+      mix-blend-mode: multiply;
+    }
+
+    .map-content {
+      position: relative;
+      z-index: 1;
+      padding: 18px 18px 16px;
+      color: #e5e7eb;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .map-title {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .map-text {
+      font-size: 13px;
+      color: #e5e7eb;
+      max-width: 360px;
+    }
+
+    .map-footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+    }
+
+    .pill-outline {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(209, 213, 219, 0.8);
+      background: rgba(15, 23, 42, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    /* FOOTER */
+
+    .site-footer {
+      background: #0b1120;
+      color: #9ca3af;
+      font-size: 12px;
+      padding: 16px 0 20px;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #9ca3af;
+    }
+
+    .footer-links a:hover {
+      color: #e5e7eb;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 960px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1.1fr);
+        gap: 32px;
+      }
+      .hero {
+        padding-bottom: 72px;
+      }
+      .dining-grid,
+      .location-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .highlights-grid,
+      .rooms-grid,
+      .experiences-grid,
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-inner {
+        padding-inline: 18px;
+      }
+
+      .nav {
+        position: absolute;
+        inset: 54px 16px auto 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        background: rgba(248, 250, 252, 0.97);
+        border-radius: 20px;
+        padding: 14px 16px;
+        border: 1px solid rgba(209, 213, 219, 0.9);
+        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.2);
+        transform-origin: top;
+        transform: scaleY(0.9);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.18s ease-out, transform 0.18s ease-out;
+      }
+
+      .nav.is-open {
+        opacity: 1;
+        transform: scaleY(1);
+        pointer-events: auto;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .hero {
+        padding-top: 88px;
+      }
+
+      .hero-inner {
+        padding-inline: 18px;
+      }
+
+      .hero-title {
+        font-size: 34px;
+      }
+
+      section {
+        padding: 72px 0;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 540px) {
+      .container {
+        padding-inline: 18px;
+      }
+
+      .hero-inner {
+        padding-inline: 18px;
+      }
+
+      .hero-title {
+        font-size: 30px;
+      }
+
+      .highlights-grid,
+      .rooms-grid,
+      .experiences-grid,
+      .gallery-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .gallery-item:nth-child(1),
+      .gallery-item:nth-child(4) {
+        grid-row: auto;
+        height: 180px;
+      }
+
+      .hero-card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="logo">
+          <div class="logo-mark">L</div>
+          <div>
+            <div class="logo-text-main">Luminosa Bay Hotel</div>
+            <div class="logo-text-sub">Mediterranean Seafront Retreat</div>
+          </div>
+        </div>
+
+        <button class="nav-toggle" aria-label="Abrir menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="nav">
+          <a href="#quartos">Quartos</a>
+          <a href="#gastronomia">Gastronomia</a>
+          <a href="#experiencias">Experiências</a>
+          <a href="#galeria">Galeria</a>
+          <a href="#localizacao">Localização</a>
+          <!-- Substituir o WhatsApp abaixo pelo real -->
+          <a class="nav-cta" href="https://wa.me/5500000000000?text=Olá!%20Quero%20informações%20sobre%20reservas%20no%20Luminosa%20Bay%20Hotel." target="_blank" rel="noopener">
+            <span class="nav-cta-dot"></span>
+            Reservar agora
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="topo">
+      <div class="hero-media" aria-hidden="true">
+        <!-- Imagens reais (Pexels) -->
+        <div class="hero-slide is-active" style="background-image:url('https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');"></div>
+        <div class="hero-slide" style="background-image:url('https://images.pexels.com/photos/189296/pexels-photo-189296.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"></div>
+        <div class="hero-slide" style="background-image:url('https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');"></div>
+      </div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-inner">
+        <div class="reveal in-view">
+          <div class="hero-tag">
+            <span class="hero-tag-pill">Frente mar • Mediterrâneo</span>
+            Refúgio com piscina infinita e pôr do sol dourado
+          </div>
+          <h1 class="hero-title">
+            O <span>refúgio à beira-mar</span> para desacelerar, respirar fundo e acordar com o som das ondas.
+          </h1>
+          <p class="hero-subtitle">
+            Um hotel boutique cercado pelo azul do mar e pelo verde da ilha. Piscina com borda infinita, quartos banhados de luz natural e uma gastronomia que une sabores locais a ingredientes frescos do Mediterrâneo.
+          </p>
+
+          <div class="hero-chips">
+            <span class="hero-chip">Nota 9,5 em reservas diretas</span>
+            <span class="hero-chip">Piscina infinita com vista 180°</span>
+            <span class="hero-chip">Café da manhã à la carte</span>
+          </div>
+
+          <div class="hero-cta-row">
+            <!-- Substituir WhatsApp + mensagem -->
+            <a class="btn-primary" href="https://wa.me/5500000000000?text=Olá!%20Quero%20ver%20datas%20disponíveis%20para%20me%20hospedar%20no%20Luminosa%20Bay%20Hotel." target="_blank" rel="noopener">
+              Ver datas e reservar
+            </a>
+            <a class="btn-secondary" href="#quartos">
+              Ver tipos de quarto
+            </a>
+          </div>
+
+          <div class="hero-note">
+            Você fala direto com a equipe do hotel via WhatsApp, <strong>sem taxas extras</strong> e com ajuda para escolher o melhor quarto e experiências.
+          </div>
+        </div>
+
+        <aside class="hero-card reveal reveal-delay-1 in-view">
+          <div class="hero-card-header">
+            <div class="hero-rating">
+              <span class="hero-rating-value">9,5</span>
+              <span class="hero-rating-label">Avaliação média dos hóspedes</span>
+            </div>
+            <div class="hero-badges-small">
+              <span class="hero-badge-small">Frente mar</span>
+              <span class="hero-badge-small">Café incluso</span>
+              <span class="hero-badge-small">Piscina & spa</span>
+            </div>
+          </div>
+
+          <div class="hero-card-grid">
+            <div class="hero-detail">
+              <strong>Vista infinita</strong>
+              Piscina com borda voltada para o mar e deck de madeira para ver o pôr do sol.
+            </div>
+            <div class="hero-detail">
+              <strong>Conforto</strong>
+              Enxoval de hotelaria, colchões premium e quartos com varandas banhadas de sol.
+            </div>
+            <div class="hero-detail">
+              <strong>Gastronomia</strong>
+              Restaurante com menu autoral inspirado em ingredientes frescos regionais.
+            </div>
+          </div>
+
+          <div class="hero-card-footer">
+            <div class="hero-avatar">
+              <div class="hero-avatar-img">
+                <!-- Imagem real (Pexels, quarto) -->
+                <img src="https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Quarto de hotel com cama e vista para o mar" />
+              </div>
+              <div class="hero-avatar-text">
+                <span class="hero-avatar-name">“Sensação de resort privativo.”</span>
+                <span>Comentário de hóspedes em julho / 2025</span>
+              </div>
+            </div>
+            <div>
+              Cancelamento flexível em datas selecionadas. Consulte no WhatsApp.
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- INTRO / HIGHLIGHTS -->
+    <section class="intro">
+      <div class="container">
+        <div class="section-label reveal in-view">Para quem é o Luminosa Bay</div>
+        <h2 class="section-title reveal reveal-delay-1 in-view">Um hotel à beira-mar para quem quer se sentir em casa, mas com serviço de resort.</h2>
+        <p class="section-subtitle reveal reveal-delay-2 in-view">
+          Seja para alguns dias de descanso, uma viagem romântica ou uma temporada de trabalho remoto com vista para o mar, o Luminosa Bay foi pensado para quem ama luz natural, silêncio confortável e pequenos detalhes bem cuidados.
+        </p>
+
+        <div class="highlights-grid">
+          <article class="highlight-card reveal in-view">
+            <div class="highlight-label">Refúgio</div>
+            <div class="highlight-title">Ilha tranquila, longe do óbvio</div>
+            <div class="highlight-text">
+              Localizado em uma baía protegida, o hotel é cercado por trilhas leves, água transparente e noites silenciosas. Perfeito para desligar das notificações e ligar para o mar.
+            </div>
+          </article>
+          <article class="highlight-card reveal reveal-delay-1 in-view">
+            <div class="highlight-label">Conforto</div>
+            <div class="highlight-title">Design clean, luz natural e texturas suaves</div>
+            <div class="highlight-text">
+              Quartos em tons claros, madeira, linho e varandas com cadeiras confortáveis para ler, tomar um café ou simplesmente observar o horizonte.
+            </div>
+          </article>
+          <article class="highlight-card reveal reveal-delay-2 in-view">
+            <div class="highlight-label">Experiências</div>
+            <div class="highlight-title">Dias completos à beira da água</div>
+            <div class="highlight-text">
+              Passeios de barco, piqueniques ao pôr do sol, yoga ao amanhecer, massagens com óleos mediterrâneos e jantares à luz de velas na varanda do restaurante.
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROOMS -->
+    <section class="rooms" id="quartos">
+      <div class="container">
+        <div class="section-label reveal in-view">Quartos & suítes</div>
+        <h2 class="section-title reveal reveal-delay-1 in-view">Quartos banhados de luz, com o mar sempre por perto.</h2>
+        <p class="section-subtitle reveal reveal-delay-2 in-view">
+          Escolha entre suítes com varanda frente mar, quartos com jardim privativo ou opções mais espaçosas para famílias. Todos com ar-condicionado silencioso, enxoval macio e Wi-Fi de alta qualidade.
+        </p>
+
+        <div class="rooms-grid">
+          <article class="room-card reveal in-view">
+            <div class="room-media">
+              <!-- Imagem real (Pexels) -->
+              <img src="https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Suíte com cama king, decoração em tons claros e varanda com vista" />
+              <div class="room-tag">Mais desejada</div>
+            </div>
+            <div class="room-body">
+              <div class="room-name">Suíte Vista Mar Luminosa</div>
+              <div class="room-meta">
+                Até 2 pessoas • Cama king • Varanda frente mar • Cafeteira no quarto • Roupão & chinelos
+              </div>
+              <div class="room-footer">
+                <div class="room-price">a partir de R$ 890 / noite</div>
+                <a class="room-cta" href="https://wa.me/5500000000000?text=Quero%20ver%20datas%20para%20a%20Suíte%20Vista%20Mar%20Luminosa." target="_blank" rel="noopener">
+                  Ver disponibilidade
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="room-card reveal reveal-delay-1 in-view">
+            <div class="room-media">
+              <!-- Imagem real (Pexels, piscina/hotel) -->
+              <img src="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Quarto com sacada e piscina próxima ao mar" />
+              <div class="room-tag">Melhor custo-benefício</div>
+            </div>
+            <div class="room-body">
+              <div class="room-name">Quarto Varanda Jardim</div>
+              <div class="room-meta">
+                Até 2 pessoas • Cama queen • Varanda voltada para o jardim interno • Ideal para quem busca silêncio.
+              </div>
+              <div class="room-footer">
+                <div class="room-price">a partir de R$ 690 / noite</div>
+                <a class="room-cta" href="https://wa.me/5500000000000?text=Quero%20ver%20datas%20para%20o%20Quarto%20Varanda%20Jardim." target="_blank" rel="noopener">
+                  Ver disponibilidade
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="room-card reveal reveal-delay-2 in-view">
+            <div class="room-media">
+              <!-- Imagem real (Pexels, resort) -->
+              <img src="https://images.pexels.com/photos/189296/pexels-photo-189296.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Vista aérea de resort com piscina e mar ao fundo" />
+              <div class="room-tag">Família & amigos</div>
+            </div>
+            <div class="room-body">
+              <div class="room-name">Suíte Família Terraço</div>
+              <div class="room-meta">
+                Até 4 pessoas • Dois ambientes • Terraço amplo com vista parcial do mar • Ideal para famílias ou pequenos grupos.
+              </div>
+              <div class="room-footer">
+                <div class="room-price">a partir de R$ 1.190 / noite</div>
+                <a class="room-cta" href="https://wa.me/5500000000000?text=Quero%20ver%20datas%20para%20a%20Suíte%20Família%20Terraço." target="_blank" rel="noopener">
+                  Ver disponibilidade
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DINING / GASTRONOMIA -->
+    <section class="dining" id="gastronomia">
+      <div class="container">
+        <div class="dining-grid">
+          <div class="reveal in-view">
+            <div class="pill">
+              <span class="pill-dot"></span>
+              Sabores à beira-mar
+            </div>
+            <h2 class="section-title">Gastronomia que combina o mar da frente com ingredientes frescos da região.</h2>
+            <p class="section-subtitle">
+              Do café da manhã com frutas frescas, pães de fermentação lenta e ovos preparados na hora, ao jantar com peixes locais e massas artesanais, o restaurante do Luminosa Bay foi pensado para ser parte da experiência – não um detalhe.
+            </p>
+
+            <div class="dining-list">
+              <div class="dining-item">
+                <div>
+                  <strong>Café da manhã à la carte</strong>
+                  <div>Servido até às 11h, com opções quentes, frias e itens preparados na hora, sem buffet lotado.</div>
+                </div>
+                <div class="dining-tag">todas as diárias</div>
+              </div>
+              <div class="dining-item">
+                <div>
+                  <strong>Jantar ao pôr do sol</strong>
+                  <div>Menu de três tempos com foco em peixes, frutos do mar e massas frescas. Sugestão diária do chef.</div>
+                </div>
+                <div class="dining-tag">reserva antecipada</div>
+              </div>
+              <div class="dining-item">
+                <div>
+                  <strong>Bar da piscina</strong>
+                  <div>Drinques autorais, vinhos brancos gelados e petiscos leves servidos na espreguiçadeira.</div>
+                </div>
+                <div class="dining-tag">todos os dias</div>
+              </div>
+            </div>
+
+            <a class="btn-secondary" href="#experiencias">
+              Ver experiências para adicionar à reserva
+            </a>
+          </div>
+
+          <div class="dining-gallery reveal reveal-delay-1 in-view">
+            <figure class="dining-img">
+              <!-- Imagem real (Pexels, pool/resort) -->
+              <img src="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Piscina de hotel com vista para o mar" />
+            </figure>
+            <figure class="dining-img">
+              <!-- Imagem real (Pexels, praia/hotel) -->
+              <img src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Cadeiras e guarda-sóis em praia em frente ao hotel" />
+            </figure>
+            <figure class="dining-img">
+              <!-- Imagem real (Pexels, interior/quarto) -->
+              <img src="https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Detalhe de cama de hotel, enxoval claro e cabeceira de madeira" />
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCES / WELLNESS -->
+    <section class="experiences" id="experiencias">
+      <div class="container">
+        <div class="section-label reveal in-view">Experiências & bem-estar</div>
+        <h2 class="section-title reveal reveal-delay-1 in-view">Monte a sua estada com experiências que vão além do quarto.</h2>
+        <p class="section-subtitle reveal reveal-delay-2 in-view">
+          Antes mesmo de chegar você já pode adicionar experiências à sua reserva. De um simples late check-out a um pacote completo com passeio de barco, spa e jantar especial.
+        </p>
+
+        <div class="experiences-grid">
+          <article class="exp-card reveal in-view">
+            <div class="exp-meta">Romântico</div>
+            <div class="exp-title">Pacote Romance à Beira-Mar</div>
+            <div class="exp-text">
+              Decoração com velas, flores frescas, espumante gelado no quarto e mesa reservada no restaurante com vista privilegiada para o pôr do sol.
+            </div>
+            <div class="exp-footer">
+              <span>+ R$ 420 por estadia</span>
+              <a class="exp-cta" href="https://wa.me/5500000000000?text=Quero%20adicionar%20o%20Pacote%20Romance%20à%20minha%20reserva%20no%20Luminosa%20Bay." target="_blank" rel="noopener">
+                Adicionar à reserva
+              </a>
+            </div>
+          </article>
+
+          <article class="exp-card reveal reveal-delay-1 in-view">
+            <div class="exp-meta">Mar & natureza</div>
+            <div class="exp-title">Passeio de barco pelas enseadas</div>
+            <div class="exp-text">
+              Saída pela manhã ou fim de tarde, com paradas em enseadas pouco movimentadas, snorkel incluído e frutas frescas a bordo.
+            </div>
+            <div class="exp-footer">
+              <span>2h • sob consulta</span>
+              <a class="exp-cta" href="https://wa.me/5500000000000?text=Quero%20informações%20sobre%20o%20passeio%20de%20barco%20no%20Luminosa%20Bay." target="_blank" rel="noopener">
+                Falar com a equipe
+              </a>
+            </div>
+          </article>
+
+          <article class="exp-card reveal reveal-delay-2 in-view">
+            <div class="exp-meta">Bem-estar</div>
+            <div class="exp-title">Dia de spa & piscina infinita</div>
+            <div class="exp-text">
+              Massagem relaxante com óleos mediterrâneos, acesso ao spa úmido e reserva de espreguiçadeira exclusiva na borda da piscina.
+            </div>
+            <div class="exp-footer">
+              <span>das 10h às 18h</span>
+              <a class="exp-cta" href="https://wa.me/5500000000000?text=Quero%20reservar%20um%20dia%20de%20spa%20no%20Luminosa%20Bay." target="_blank" rel="noopener">
+                Reservar experiência
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery" id="galeria">
+      <div class="container">
+        <div class="section-label reveal in-view">Galeria</div>
+        <h2 class="section-title reveal reveal-delay-1 in-view">Um passeio visual pelo hotel antes mesmo de chegar.</h2>
+        <p class="section-subtitle reveal reveal-delay-2 in-view">
+          Algumas imagens reais que traduzem o clima do Luminosa Bay: luz suave, mar por todos os lados, texturas naturais e a sensação de resort boutique à beira-mar.
+        </p>
+
+        <div class="gallery-grid">
+          <figure class="gallery-item reveal in-view">
+            <img src="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Piscina infinita de hotel com vista para o mar" />
+            <figcaption class="gallery-badge">Piscina infinita</figcaption>
+          </figure>
+          <figure class="gallery-item reveal reveal-delay-1 in-view">
+            <img src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Guarda-sóis e cadeiras em praia em frente ao hotel" />
+            <figcaption class="gallery-badge">Praia em frente</figcaption>
+          </figure>
+          <figure class="gallery-item reveal reveal-delay-2 in-view">
+            <img src="https://images.pexels.com/photos/189296/pexels-photo-189296.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Vista aérea de resort com piscina e mar" />
+            <figcaption class="gallery-badge">Resort boutique</figcaption>
+          </figure>
+          <figure class="gallery-item reveal reveal-delay-1 in-view">
+            <img src="https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Interior de quarto de hotel com cama confortável e decoração clara" />
+            <figcaption class="gallery-badge">Quartos iluminados</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION & CONTACT -->
+    <section class="location" id="localizacao">
+      <div class="container">
+        <div class="section-label reveal in-view">Localização & contato</div>
+        <h2 class="section-title reveal reveal-delay-1 in-view">Uma baía tranquila no Mediterrâneo, mas com tudo o que você precisa por perto.</h2>
+        <p class="section-subtitle reveal reveal-delay-2 in-view">
+          O Luminosa Bay fica em uma pequena baía de águas calmas, com acesso fácil por barco a partir da costa principal. Próximo a trilhas leves, mirantes naturais e pequenos restaurantes locais.
+        </p>
+
+        <div class="location-grid">
+          <div class="contact-card reveal in-view">
+            <div class="contact-row">
+              <div class="contact-label">WhatsApp</div>
+              <div class="contact-value">
+                <!-- Substituir telefone real -->
+                <a href="https://wa.me/5500000000000?text=Olá!%20Quero%20informações%20sobre%20reservas%20no%20Luminosa%20Bay%20Hotel." target="_blank" rel="noopener">
+                  +55 (00) 00000-0000
+                </a>
+              </div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-label">E-mail</div>
+              <div class="contact-value">
+                <!-- Substituir e-mail real -->
+                <a href="mailto:reservas@luminosabayhotel.com">reservas@luminosabayhotel.com</a>
+              </div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-label">Endereço</div>
+              <div class="contact-value">
+                Baía Luminosa, Ilha Azul – Costa Mediterrânea
+              </div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-label">Como chegar</div>
+              <div class="contact-value">
+                <ul style="padding-left: 18px; margin: 4px 0;">
+                  <li>Barco rápido a partir do continente (aprox. 40 minutos).</li>
+                  <li>Transfer privativo organizado pelo hotel (sob consulta).</li>
+                  <li>Estacionamento disponível no píer de embarque no continente.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="contact-actions">
+              <a class="btn-primary" href="https://wa.me/5500000000000?text=Olá!%20Quero%20ver%20datas%20disponíveis%20para%20me%20hospedar%20no%20Luminosa%20Bay%20Hotel." target="_blank" rel="noopener">
+                Falar no WhatsApp agora
+              </a>
+              <a class="btn-secondary" href="#topo">
+                Voltar ao topo
+              </a>
+            </div>
+          </div>
+
+          <div class="map-shell reveal reveal-delay-1 in-view">
+            <div class="map-bg" aria-hidden="true"></div>
+            <div class="map-overlay" aria-hidden="true"></div>
+            <div class="map-content">
+              <div>
+                <div class="map-title">Vista aérea da região</div>
+                <p class="map-text">
+                  Uma baía em formato de concha, com água azul-esverdeada, plataforma de banho em frente ao hotel e pequenas enseadas para explorar caminhando ou de barco.
+                </p>
+              </div>
+              <div class="map-footer">
+                <div class="pill-outline">Coordenadas disponíveis na confirmação da reserva</div>
+                <a class="btn-secondary" href="https://wa.me/5500000000000?text=Quero%20receber%20o%20mapa%20e%20as%20instruções%20de%20como%20chegar%20no%20Luminosa%20Bay%20Hotel." target="_blank" rel="noopener">
+                  Quero o mapa detalhado
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div>© 2025 Luminosa Bay Hotel – Mediterranean Seafront Retreat. Todos os direitos reservados.</div>
+        <div class="footer-links">
+          <span>Design conceitual para demonstração.</span>
+          <span>Feito por Axie.</span>
+          <a href="#topo">Topo</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Hero slideshow
+    (function () {
+      const slides = Array.from(document.querySelectorAll('.hero-slide'));
+      let current = 0;
+
+      function showSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('is-active', i === index);
+        });
+      }
+
+      if (slides.length > 1) {
+        setInterval(() => {
+          current = (current + 1) % slides.length;
+          showSlide(current);
+        }, 7000);
+      }
+    })();
+
+    // Simple fade-up on scroll using IntersectionObserver
+    (function () {
+      const reveals = document.querySelectorAll('.reveal');
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.15
+        }
+      );
+
+      reveals.forEach((el) => observer.observe(el));
+    })();
+
+    // Mobile nav toggle
+    (function () {
+      const toggle = document.querySelector('.nav-toggle');
+      const nav = document.querySelector('.nav');
+
+      if (!toggle || !nav) return;
+
+      toggle.addEventListener('click', () => {
+        nav.classList.toggle('is-open');
+      });
+
+      nav.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('is-open');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
