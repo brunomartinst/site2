@@ -1379,12 +1379,26 @@
 
   /* deixa o selo + texto do hero mais leve no mobile */
   .hero-tag {
-    display: inline-flex;
-    flex-direction: column;      /* selo em cima, frase embaixo */
+    display: flex;
+    flex-direction: column; 
     align-items: flex-start;
-    gap: 4px;
-    font-size: 10px;            /* reduz um pouco o tamanho */
-    letter-spacing: 0.18em;
+    gap: 6px;
+
+    width: 100%;               /* ocupa a largura do card pai */
+    padding: 8px 10px;         /* mais respiro interno */
+    border-radius: 18px;       /* menos “cápsula” gigante no mobile */
+
+    font-size: 9px;
+    letter-spacing: 0.12em;    /* reduz espaçamento entre letras */
+    line-height: 1.35;
+    white-space: normal;       /* garante quebra bonita */
+  }
+
+  .hero-tag-pill {
+    align-self: flex-start;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    padding: 5px 10px;
   }
 
   .highlights-grid,
@@ -1918,7 +1932,6 @@
         <div class="footer-inner">
           <div>© 2025 Luminosa Bay Hotel – Mediterranean Seafront Retreat. Todos os direitos reservados.</div>
           <div class="footer-links">
-            <span>Design conceitual para demonstração.</span>
             <span>Feito por Axie.</span>
             <a href="#topo">Topo</a>
           </div>
