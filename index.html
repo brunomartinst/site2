@@ -234,341 +234,269 @@
       transition: transform 0.18s ease-out, opacity 0.18s ease-out;
     }
 
-    /* HERO */
+/* HERO */
 
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      padding-top: 120px; /* mais espaço do header */
-      padding-bottom: 60px;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-    }
+.hero {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 120px;
+  padding-bottom: 144px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
 
-    .hero-media {
-      position: absolute;
-      inset: 0;
-      z-index: -2;
-      overflow: hidden;
-      pointer-events: none;
-    }
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
 
-    .hero-slide {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transform: scale(1.04);
-      transition: opacity 1.4s ease-out, transform 12s linear;
-      background-position: center;
-      background-size: cover;
-      will-change: transform;
-    }
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.04);
+  transform-origin: center;
+  filter: saturate(1.05);
+}
 
-    .hero-slide.is-active {
-      opacity: 1;
-      transform: scale(1.08);
-    }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.25), rgba(15, 23, 42, 0.45)),
+    linear-gradient(to right, rgba(248, 250, 252, 0.92), rgba(248, 250, 252, 0.55) 50%, rgba(15, 23, 42, 0.35));
+  mix-blend-mode: multiply;
+}
 
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background:
-        linear-gradient(to bottom, rgba(15, 23, 42, 0.25), rgba(15, 23, 42, 0.45)),
-        linear-gradient(to right, rgba(248, 250, 252, 0.92), rgba(248, 250, 252, 0.55) 50%, rgba(15, 23, 42, 0.35));
-      mix-blend-mode: multiply;
-    }
+.hero-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 3.1fr) minmax(0, 2.4fr);
+  gap: 40px;
+  align-items: center;
+}
 
-    .hero-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 24px;
-      display: grid;
-      grid-template-columns: minmax(0, 3.1fr) minmax(0, 2.4fr);
-      gap: 40px;
-      align-items: center;
-    }
+.hero-panel {
+  background: radial-gradient(circle at left, rgba(248, 250, 252, 0.98), rgba(248, 250, 252, 0.9) 60%, rgba(248, 250, 252, 0.2));
+  padding: 22px 24px 20px;
+  border-radius: 26px;
+  box-shadow: 0 28px 70px rgba(15, 23, 42, 0.35);
+  backdrop-filter: blur(10px);
+  transform: translateY(0);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
 
-    .hero-panel {
-      background: radial-gradient(circle at left, rgba(248, 250, 252, 0.98), rgba(248, 250, 252, 0.9) 60%, rgba(248, 250, 252, 0.2));
-      padding: 22px 24px 20px;
-      border-radius: 26px;
-      box-shadow: 0 28px 70px rgba(15, 23, 42, 0.35);
-      backdrop-filter: blur(10px);
-      transform: translateY(0);
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-    }
+.hero-panel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 32px 80px rgba(15, 23, 42, 0.4);
+}
 
-    .hero-panel:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 32px 80px rgba(15, 23, 42, 0.4);
-    }
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 12px 4px 4px;
+  border-radius: 999px;
+  background: rgba(248, 250, 252, 0.9);
+  border: 1px solid rgba(209, 213, 219, 0.9);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-soft);
+  margin-bottom: 16px;
+}
 
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 4px 12px 4px 4px;
-      border-radius: 999px;
-      background: rgba(248, 250, 252, 0.9);
-      border: 1px solid rgba(209, 213, 219, 0.9);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--text-soft);
-      margin-bottom: 16px;
-    }
+.hero-tag-pill {
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), #0ea5e9);
+  color: #f9fafb;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+}
 
-    .hero-tag-pill {
-      padding: 4px 12px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--accent), #0ea5e9);
-      color: #f9fafb;
-      font-size: 10px;
-      letter-spacing: 0.18em;
-    }
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 46px;
+  line-height: 1.08;
+  margin: 0 0 18px;
+  color: #0b1120;
+}
 
-    .hero-title {
-      font-family: 'Playfair Display', serif;
-      font-weight: 600;
-      font-size: 46px;
-      line-height: 1.08;
-      margin: 0 0 18px;
-      color: #0b1120;
-    }
+.hero-title span {
+  color: var(--accent);
+  transition: color var(--transition-fast);
+}
 
-    .hero-title span {
-      color: var(--accent);
-      transition: color var(--transition-fast);
-    }
+.hero-panel:hover .hero-title span {
+  color: #0ea5e9;
+}
 
-    .hero-panel:hover .hero-title span {
-      color: #0ea5e9;
-    }
+.hero-subtitle {
+  font-size: 15px;
+  max-width: 520px;
+  color: #4b5563;
+  margin-bottom: 22px;
+}
 
-    .hero-subtitle {
-      font-size: 15px;
-      max-width: 520px;
-      color: #4b5563;
-      margin-bottom: 22px;
-    }
+.hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
 
-    .hero-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 22px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-    }
+.hero-chip {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid rgba(209, 213, 219, 0.9);
+  color: #6b7280;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+}
 
-    .hero-chip {
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: #ffffff;
-      border: 1px solid rgba(209, 213, 219, 0.9);
-      color: #6b7280;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
-    }
+.hero-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+  border-color: rgba(15, 118, 110, 0.4);
+  background: #f9fafb;
+}
 
-    .hero-chip:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
-      border-color: rgba(15, 118, 110, 0.4);
-      background: #f9fafb;
-    }
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 4px;
+}
 
-    .hero-cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-      margin-bottom: 14px;
-    }
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #0f766e, #0ea5e9);
+  color: #f9fafb;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.4);
+  transform: translateY(0);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+}
 
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px 24px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      background: linear-gradient(135deg, #0f766e, #0ea5e9);
-      color: #f9fafb;
-      font-size: 14px;
-      font-weight: 500;
-      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.4);
-      transform: translateY(0);
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
-    }
+.btn-primary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.55);
+}
 
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.05);
-      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.55);
-    }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.9);
+  background: rgba(248, 250, 252, 0.92);
+  color: #374151;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
 
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 11px 18px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.9);
-      background: rgba(248, 250, 252, 0.92);
-      color: #374151;
-      font-size: 13px;
-      cursor: pointer;
-      transition: background var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
-    }
+.btn-secondary:hover {
+  background: #e5edf7;
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.18);
+}
 
-    .btn-secondary:hover {
-      background: #e5edf7;
-      border-color: var(--accent);
-      transform: translateY(-1px);
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.18);
-    }
+/* HERO – BARRA DE RESERVA */
 
-    .hero-note {
-      font-size: 11px;
-      color: #4b5563;
-    }
+.hero-reservation {
+  position: absolute;
+  bottom: 32px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 0 24px;          /* mesmo recuo lateral do restante do site */
+  pointer-events: none;
+}
 
-    .hero-note strong {
-      color: var(--accent);
-      font-weight: 600;
-    }
+.hero-reservation-card {
+  pointer-events: auto;
+  width: 100%;
+  max-width: var(--max-width);  /* limita a largura ao mesmo max-width do site */
+  margin: 0 auto;               /* centraliza perfeitamente */
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 999px;
+  background: rgba(248, 250, 252, 0.97);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(148, 163, 184, 0.85);
+  box-shadow: 0 22px 50px rgba(15, 23, 42, 0.4);
+}
 
-    .hero-card {
-      background: rgba(255, 255, 255, 0.96);
-      border-radius: var(--radius-xl);
-      padding: 18px 18px 16px;
-      border: 1px solid rgba(209, 213, 219, 0.9);
-      box-shadow: var(--shadow-soft);
-      backdrop-filter: blur(10px);
-      transform: translateY(0);
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-    }
+.hero-reservation-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #6b7280;
+  flex: 1 1 0;      /* todos dividem o espaço igualmente */
+  min-width: 150px; /* limite mínimo pra não ficar minúsculo */
+}
 
-    .hero-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 30px 80px rgba(15, 23, 42, 0.35);
-    }
+.hero-reservation-field label {
+  cursor: pointer;
+}
 
-    .hero-card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 12px;
-      font-size: 12px;
-      color: #4b5563;
-    }
+.hero-reservation-field select,
+.hero-reservation-field input[type="date"] {
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.9);
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #111827;
+  background: #ffffff;
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+}
 
-    .hero-rating {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
+.hero-reservation-field select:focus,
+.hero-reservation-field input[type="date"]:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(15, 118, 110, 0.6);
+  background: #f9fafb;
+}
 
-    .hero-rating-value {
-      font-size: 24px;
-      font-weight: 600;
-      color: #0b1120;
-    }
-
-    .hero-rating-label {
-      font-size: 11px;
-      color: #6b7280;
-    }
-
-    .hero-badges-small {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      justify-content: flex-end;
-    }
-
-    .hero-badge-small {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      padding: 4px 8px;
-      border-radius: 999px;
-      background: var(--bg-soft-alt);
-      border: 1px solid rgba(229, 231, 235, 1);
-    }
-
-    .hero-card-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-      margin-bottom: 12px;
-    }
-
-    .hero-detail {
-      padding: 10px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, rgba(15, 118, 110, 0.06), rgba(255, 255, 255, 0.7));
-      border: 1px solid rgba(209, 213, 219, 0.9);
-      font-size: 11px;
-      line-height: 1.4;
-      color: #4b5563;
-    }
-
-    .hero-detail strong {
-      display: block;
-      font-size: 14px;
-      font-weight: 600;
-      color: #0b1120;
-      margin-bottom: 3px;
-    }
-
-    .hero-card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      font-size: 11px;
-      color: #6b7280;
-    }
-
-    .hero-avatar {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .hero-avatar-img {
-      width: 26px;
-      height: 26px;
-      border-radius: 999px;
-      overflow: hidden;
-      border: 1px solid rgba(209, 213, 219, 0.9);
-    }
-
-    .hero-avatar-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .hero-avatar-text {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .hero-avatar-name {
-      font-size: 11px;
-      font-weight: 500;
-      color: #111827;
-    }
+.hero-reservation-button {
+  flex-shrink: 0;
+  white-space: nowrap;
+  padding-inline: 22px;
+}
 
     /* SECTIONS / GLOBAL */
 
@@ -965,21 +893,15 @@
       gap: 12px;
     }
 
-    .gallery-item {
-      position: relative;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid rgba(209, 213, 219, 0.9);
-      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.18);
-      height: 220px; /* maior que antes */
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-    }
-
-    .gallery-item:nth-child(1),
-    .gallery-item:nth-child(4) {
-      grid-row: span 2;
-      height: 360px; /* maior que antes */
-    }
+.gallery-item {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(209, 213, 219, 0.9);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.18);
+  height: 220px; /* todos com a mesma altura */
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
 
     .gallery-item img {
       width: 100%;
@@ -1011,18 +933,124 @@
       letter-spacing: 0.16em;
     }
 
+
+/* FAQ */
+
+.faq {
+  background: radial-gradient(circle at top, #f5f3ef 0%, #fdf8f3 55%, #eef2f7 100%);
+}
+
+.faq-accordion {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.faq-item {
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-subtle);
+  padding: 10px 14px;
+  overflow: hidden;
+}
+
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #111827;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  font-size: 18px;
+  line-height: 1;
+  color: var(--text-soft);
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+  color: var(--accent);
+}
+
+.faq-item p {
+  margin: 8px 0 4px;
+  font-size: 13px;
+  color: var(--text-soft);
+}
+
     /* LOCATION & CONTACT */
 
     .location {
       background: radial-gradient(circle at top, var(--accent-gold-soft) 0%, #fdf8f3 52%, #eef2f7 100%);
     }
 
-    .location-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr);
-      gap: 26px;
-      align-items: flex-start;
-    }
+.location-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
+  gap: 26px;
+  align-items: stretch;
+}
+
+.location-map-card {
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid var(--border-soft);
+  padding: 18px 18px 16px;
+  box-shadow: var(--shadow-subtle);
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.location-map-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--text-soft);
+}
+
+.location-map-heading {
+  margin: 2px 0 2px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #0b1120;
+}
+
+.location-map-text {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: var(--text-soft);
+}
+
+.location-map-frame {
+  margin-top: 4px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.6);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.4);
+}
+
+.location-map-frame iframe {
+  width: 100%;
+  height: 220px;
+  border: none;
+  display: block;
+}
 
     .contact-card {
       border-radius: var(--radius-lg);
@@ -1139,122 +1167,256 @@
       color: #e5e7eb;
     }
 
+    /* MODAL DE AVISO DE RESERVA */
+
+    .booking-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .booking-modal.is-open {
+      display: flex;
+    }
+
+    .booking-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.55);
+      backdrop-filter: blur(4px);
+    }
+
+    .booking-modal-dialog {
+      position: relative;
+      max-width: 420px;
+      width: 90%;
+      background: #f9fafb;
+      border-radius: 24px;
+      padding: 22px 20px 18px;
+      box-shadow: 0 30px 80px rgba(15, 23, 42, 0.55);
+      z-index: 1;
+    }
+
+    .booking-modal-dialog h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      color: #0b1120;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .booking-modal-dialog p {
+      margin: 0 0 16px;
+      font-size: 14px;
+      color: #4b5563;
+    }
+
+    .booking-modal-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+      margin-top: 8px;
+    }
+
+    .booking-modal-close {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      border: none;
+      background: transparent;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      color: #6b7280;
+    }
+
+    .booking-modal-close:hover {
+      color: #111827;
+    }
+
+/* Espaço extra entre a barra de reserva e a próxima seção (apenas desktop) */
+@media (min-width: 961px) {
+  .intro {
+    margin-top: 0;          /* garante que não fica tarja */
+    padding-top: 120px;     /* antes era 88px via 'section'; agora dá mais respiro */
+  }
+}
+
     /* RESPONSIVE */
+@media (max-width: 960px) {
+  .hero-inner {
+    grid-template-columns: minmax(0, 1.1fr);
+    gap: 32px;
+  }
 
-    @media (max-width: 960px) {
-      .hero-inner {
-        grid-template-columns: minmax(0, 1.1fr);
-        gap: 32px;
-      }
+  .location-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 
-      .hero {
-        padding-bottom: 72px;
-      }
+  .hero {
+    padding-bottom: 120px;
+  }
 
-      .dining-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
+  .dining-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 
-      .highlights-grid,
-      .rooms-grid,
-      .experiences-grid,
-      .gallery-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
+  .highlights-grid,
+  .rooms-grid,
+  .experiences-grid,
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 
-    @media (max-width: 768px) {
-      .header-inner {
-        padding-inline: 18px;
-      }
+@media (max-width: 768px) {
+  .header-inner {
+    padding-inline: 18px;
+  }
 
-      .nav {
-        position: absolute;
-        inset: 54px 16px auto 16px;
-        flex-direction: column;
-        align-items: flex-start;
-        background: rgba(248, 250, 252, 0.97);
-        border-radius: 20px;
-        padding: 14px 16px;
-        border: 1px solid rgba(209, 213, 219, 0.9);
-        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.2);
-        transform-origin: top;
-        transform: scaleY(0.9);
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.18s ease-out, transform 0.18s ease-out;
-      }
+  .nav {
+    position: absolute;
+    inset: 54px 16px auto 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    background: rgba(248, 250, 252, 0.97);
+    border-radius: 20px;
+    padding: 14px 16px;
+    border: 1px solid rgba(209, 213, 219, 0.9);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.2);
+    transform-origin: top;
+    transform: scaleY(0.9);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s ease-out, transform 0.18s ease-out;
+  }
 
-      .nav.is-open {
-        opacity: 1;
-        transform: scaleY(1);
-        pointer-events: auto;
-      }
+  .nav.is-open {
+    opacity: 1;
+    transform: scaleY(1);
+    pointer-events: auto;
+  }
 
-      .nav-toggle {
-        display: block;
-      }
+  .nav-toggle {
+    display: block;
+  }
 
-      .hero {
-        padding-top: 100px;
-      }
+  .hero {
+    padding-top: 100px;
+    padding-bottom: 32px;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
 
-      .hero-inner {
-        padding-inline: 18px;
-      }
+  .hero-inner {
+    padding-inline: 18px;
+  }
 
-      .hero-title {
-        font-size: 34px;
-      }
+  .hero-title {
+    font-size: 34px;
+  }
 
-      .hero-panel {
-        padding: 18px 16px 18px;
-        border-radius: 20px;
-      }
+  .hero-panel {
+    padding: 18px 16px 18px;
+    border-radius: 20px;
+  }
 
-      section {
-        padding: 72px 0;
-      }
+  .hero-reservation {
+    position: static;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    width: 100%;
+    max-width: none;
+    padding: 18px;
+    margin-top: 8px;
+  }
 
-      .gallery-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+  .hero-reservation-card {
+    border-radius: 22px;
+    align-items: stretch;
+  }
 
-      .footer-map-frame iframe {
-        height: 220px;
-      }
-    }
+  .hero-reservation-field {
+    min-width: 100%;   /* aqui sim vira 1 por linha */
+  }
 
-    @media (max-width: 540px) {
-      .container {
-        padding-inline: 18px;
-      }
+  section {
+    padding: 72px 0;
+  }
 
-      .hero-inner {
-        padding-inline: 18px;
-      }
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 
-      .hero-title {
-        font-size: 30px;
-      }
+  .footer-map-frame iframe {
+    height: 220px;
+  }
+}
 
-      .highlights-grid,
-      .rooms-grid,
-      .experiences-grid,
-      .gallery-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
 
-      .gallery-item:nth-child(1),
-      .gallery-item:nth-child(4) {
-        grid-row: auto;
-        height: 200px;
-      }
+@media (max-width: 540px) {
+  .container {
+    padding-inline: 18px;
+  }
 
-      .hero-card-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
+  /* dá espaço entre o header fixo e o card do hero no mobile */
+  .hero {
+    padding-top: 140px;
+  }
+
+  .hero-inner {
+    padding-inline: 18px;
+  }
+
+  .hero-title {
+    font-size: 30px;
+  }
+
+  /* deixa o selo + texto do hero mais leve no mobile */
+  .hero-tag {
+    display: inline-flex;
+    flex-direction: column;      /* selo em cima, frase embaixo */
+    align-items: flex-start;
+    gap: 4px;
+    font-size: 10px;            /* reduz um pouco o tamanho */
+    letter-spacing: 0.18em;
+  }
+
+  .highlights-grid,
+  .rooms-grid,
+  .experiences-grid,
+  .gallery-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .gallery-item {
+    height: 200px;
+  }
+
+  .hero-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-reservation-card {
+    padding: 14px 14px;
+  }
+
+  .hero-reservation-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .location-map-frame iframe {
+    height: 200px;
+  }
+}
+
+
   </style>
 </head>
 <body>
@@ -1291,96 +1453,85 @@
       </div>
     </header>
 
-    <!-- HERO -->
-    <section class="hero" id="topo">
-      <div class="hero-media" aria-hidden="true">
-        <!-- Imagens reais (Pexels) -->
-        <div class="hero-slide is-active" style="background-image:url('https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');"></div>
-        <div class="hero-slide" style="background-image:url('https://images.pexels.com/photos/189296/pexels-photo-189296.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"></div>
-        <div class="hero-slide" style="background-image:url('https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');"></div>
+<!-- HERO -->
+<section class="hero" id="topo">
+  <div class="hero-media" aria-hidden="true">
+    <video class="hero-video" autoplay muted loop playsinline poster="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
+      <source src="https://7775bf3b0b920d9b48ac9f87beefb74c.cdn.bubble.io/f1763556299942x753568896282545800/7498577-uhd_3840_2160_30fps.mp4?_gl=1*c40uxn*_gcl_au*MTgxNjkzNDY0OC4xNzU4NzI1NTY2*_ga*MjY0NTUxMzc3LjE3NTc5NDE2MzA.*_ga_BFPVR2DEE2*czE3NjM1NTE4MzEkbzQxJGcxJHQxNzYzNTU2MjUyJGo1OCRsMCRoMA.." type="video/mp4" />
+      Seu navegador não suporta vídeo em HTML5.
+    </video>
+  </div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-inner">
+    <div class="hero-panel reveal">
+      <div class="hero-tag">
+        <span class="hero-tag-pill">Frente mar • Mediterrâneo</span>
+        Refúgio com piscina infinita e pôr do sol dourado
       </div>
-      <div class="hero-overlay"></div>
+      <h1 class="hero-title">
+        Seu <span>refúgio à beira-mar</span> para desacelerar e acordar com o som das ondas.
+      </h1>
+      <p class="hero-subtitle">
+        Piscina infinita, quartos cheios de luz natural e uma gastronomia mediterrânea com ingredientes frescos da região.
+      </p>
 
-      <div class="hero-inner">
-        <div class="hero-panel reveal">
-          <div class="hero-tag">
-            <span class="hero-tag-pill">Frente mar • Mediterrâneo</span>
-            Refúgio com piscina infinita e pôr do sol dourado
-          </div>
-          <h1 class="hero-title">
-            O <span>refúgio à beira-mar</span> para desacelerar, respirar fundo e acordar com o som das ondas.
-          </h1>
-          <p class="hero-subtitle">
-            Um hotel boutique cercado pelo azul do mar e pelo verde da ilha. Piscina com borda infinita, quartos banhados de luz natural e uma gastronomia que une sabores locais a ingredientes frescos do Mediterrâneo.
-          </p>
-
-          <div class="hero-chips">
-            <span class="hero-chip">Nota 9,5 em reservas diretas</span>
-            <span class="hero-chip">Piscina infinita com vista 180°</span>
-            <span class="hero-chip">Café da manhã à la carte</span>
-          </div>
-
-          <div class="hero-cta-row">
-            <!-- Substituir WhatsApp + mensagem -->
-            <a class="btn-primary" href="https://wa.me/5500000000000?text=Olá!%20Quero%20ver%20datas%20disponíveis%20para%20me%20hospedar%20no%20Luminosa%20Bay%20Hotel." target="_blank" rel="noopener">
-              Ver datas e reservar
-            </a>
-            <a class="btn-secondary" href="#quartos">
-              Ver tipos de quarto
-            </a>
-          </div>
-
-          <div class="hero-note">
-            Você fala direto com a equipe do hotel via WhatsApp, <strong>sem taxas extras</strong> e com ajuda para escolher o melhor quarto e experiências.
-          </div>
-        </div>
-
-        <aside class="hero-card reveal reveal-delay-1">
-          <div class="hero-card-header">
-            <div class="hero-rating">
-              <span class="hero-rating-value">9,5</span>
-              <span class="hero-rating-label">Avaliação média dos hóspedes</span>
-            </div>
-            <div class="hero-badges-small">
-              <span class="hero-badge-small">Frente mar</span>
-              <span class="hero-badge-small">Café incluso</span>
-              <span class="hero-badge-small">Piscina & spa</span>
-            </div>
-          </div>
-
-          <div class="hero-card-grid">
-            <div class="hero-detail">
-              <strong>Vista infinita</strong>
-              Piscina com borda voltada para o mar e deck de madeira para ver o pôr do sol.
-            </div>
-            <div class="hero-detail">
-              <strong>Conforto</strong>
-              Enxoval de hotelaria, colchões premium e quartos com varandas banhadas de sol.
-            </div>
-            <div class="hero-detail">
-              <strong>Gastronomia</strong>
-              Restaurante com menu autoral inspirado em ingredientes frescos regionais.
-            </div>
-          </div>
-
-          <div class="hero-card-footer">
-            <div class="hero-avatar">
-              <div class="hero-avatar-img">
-                <!-- Imagem real (Pexels, quarto) -->
-                <img src="https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Quarto de hotel com cama e vista para o mar" />
-              </div>
-              <div class="hero-avatar-text">
-                <span class="hero-avatar-name">“Sensação de resort privativo.”</span>
-                <span>Comentário de hóspedes em julho / 2025</span>
-              </div>
-            </div>
-            <div>
-              Cancelamento flexível em datas selecionadas. Consulte no WhatsApp.
-            </div>
-          </div>
-        </aside>
+      <div class="hero-chips">
+        <span class="hero-chip">Piscina infinita com vista 180°</span>
+        <span class="hero-chip">Café da manhã à la carte</span>
+        <span class="hero-chip">Atendimento próximo & acolhedor</span>
       </div>
-    </section>
+
+      <div class="hero-cta-row">
+        <a class="btn-primary" href="https://wa.me/5500000000000?text=Olá!%20Quero%20ver%20datas%20disponíveis%20para%20me%20hospedar%20no%20Luminosa%20Bay%20Hotel." target="_blank" rel="noopener">
+          Ver datas e reservar
+        </a>
+        <a class="btn-secondary" href="#quartos">
+          Ver tipos de quarto
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Barra de reserva no rodapé do hero -->
+  <div class="hero-reservation reveal reveal-delay-1">
+    <form class="hero-reservation-card" id="hero-reservation-form">
+      <div class="hero-reservation-field">
+        <label for="checkin">Check-in</label>
+        <input type="date" id="checkin" name="checkin" required />
+      </div>
+
+      <div class="hero-reservation-field">
+        <label for="checkout">Check-out</label>
+        <input type="date" id="checkout" name="checkout" required />
+      </div>
+
+      <div class="hero-reservation-field">
+        <label for="adults">Adultos</label>
+        <select id="adults" name="adults">
+          <option value="1">1 adulto</option>
+          <option value="2" selected>2 adultos</option>
+          <option value="3">3 adultos</option>
+          <option value="4">4 adultos</option>
+        </select>
+      </div>
+
+      <div class="hero-reservation-field">
+        <label for="children">Crianças</label>
+        <select id="children" name="children">
+          <option value="0" selected>Sem crianças</option>
+          <option value="1">1 criança</option>
+          <option value="2">2 crianças</option>
+          <option value="3">3 crianças</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn-primary hero-reservation-button">
+        Reservar
+      </button>
+    </form>
+  </div>
+</section>
 
     <!-- INTRO / HIGHLIGHTS -->
     <section class="intro">
@@ -1540,7 +1691,7 @@
             </figure>
             <figure class="dining-img">
               <!-- Imagem real (Pexels, praia/hotel) -->
-              <img src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Cadeiras e guarda-sóis em praia em frente ao hotel" />
+              <img src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2&h=650&w=940" alt="Cadeiras e guarda-sóis em praia em frente ao hotel" />
             </figure>
             <figure class="dining-img">
               <!-- Imagem real (Pexels, interior/quarto) -->
@@ -1621,7 +1772,7 @@
             <figcaption class="gallery-badge">Piscina infinita</figcaption>
           </figure>
           <figure class="gallery-item reveal reveal-delay-1">
-            <img src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Guarda-sóis e cadeiras em praia em frente ao hotel" />
+            <img src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2&h=650&w=940" alt="Guarda-sóis e cadeiras em praia em frente ao hotel" />
             <figcaption class="gallery-badge">Praia em frente</figcaption>
           </figure>
           <figure class="gallery-item reveal reveal-delay-2">
@@ -1636,16 +1787,74 @@
       </div>
     </section>
 
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="section-label reveal">Perguntas frequentes</div>
+        <h2 class="section-title reveal reveal-delay-1">FAQ – dúvidas antes de reservar.</h2>
+        <p class="section-subtitle reveal reveal-delay-2">
+          Respostas rápidas para as perguntas que mais recebemos de hóspedes que estão planejando a primeira estadia no Luminosa Bay.
+        </p>
+
+        <div class="faq-accordion">
+          <details class="faq-item reveal">
+            <summary>O café da manhã está incluído em todas as diárias?</summary>
+            <p>
+              Sim. Todas as reservas incluem café da manhã à la carte servido até às 11h,
+              com opções quentes, frias e itens preparados na hora.
+            </p>
+          </details>
+
+          <details class="faq-item reveal reveal-delay-1">
+            <summary>O hotel é pé na areia? Como é o acesso à praia?</summary>
+            <p>
+              O Luminosa Bay fica em frente ao mar, em uma baía de águas calmas.
+              Há acesso fácil a pé até a faixa de areia e estrutura com cadeiras e guarda-sóis.
+            </p>
+          </details>
+
+          <details class="faq-item reveal reveal-delay-2">
+            <summary>Vocês aceitam crianças?</summary>
+            <p>
+              Sim, recebemos famílias com crianças. Algumas categorias de quarto são mais indicadas,
+              como a Suíte Família Terraço. Fale com a equipe para indicação do melhor tipo.
+            </p>
+          </details>
+
+          <details class="faq-item reveal reveal-delay-3">
+            <summary>Posso trabalhar remotamente do hotel?</summary>
+            <p>
+              Sim. Todos os quartos têm Wi-Fi de alta velocidade e boas áreas de apoio,
+              além de espaços comuns silenciosos para trabalhar com vista para o mar.
+            </p>
+          </details>
+
+          <details class="faq-item reveal reveal-delay-2">
+            <summary>Como finalizo a reserva depois de enviar meus dados?</summary>
+            <p>
+              Depois de usar a barra de reserva ou falar com a equipe pelo WhatsApp,
+              você receberá opções de datas, valores e formas de pagamento para confirmar a hospedagem com segurança.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+
     <!-- LOCATION & CONTACT -->
     <section class="location" id="localizacao">
       <div class="container">
         <div class="section-label reveal">Localização & contato</div>
-        <h2 class="section-title reveal reveal-delay-1">Uma baía tranquila no Mediterrâneo, mas com tudo o que você precisa por perto.</h2>
+        <h2 class="section-title reveal reveal-delay-1">
+          Uma baía tranquila no Mediterrâneo, mas com tudo o que você precisa por perto.
+        </h2>
         <p class="section-subtitle reveal reveal-delay-2">
-          O Luminosa Bay fica em uma pequena baía de águas calmas, com acesso fácil por barco a partir da costa principal. Próximo a trilhas leves, mirantes naturais e pequenos restaurantes locais.
+          O Luminosa Bay fica em uma pequena baía de águas calmas, com acesso fácil por barco a partir da costa principal.
+          Próximo a trilhas leves, mirantes naturais e pequenos restaurantes locais.
         </p>
 
         <div class="location-grid">
+          <!-- Card de contato -->
           <div class="contact-card reveal">
             <div class="contact-row">
               <div class="contact-label">WhatsApp</div>
@@ -1669,16 +1878,6 @@
                 Baía Luminosa, Ilha Azul – Costa Mediterrânea
               </div>
             </div>
-            <div class="contact-row">
-              <div class="contact-label">Como chegar</div>
-              <div class="contact-value">
-                <ul style="padding-left: 18px; margin: 4px 0;">
-                  <li>Barco rápido a partir do continente (aprox. 40 minutos).</li>
-                  <li>Transfer privativo organizado pelo hotel (sob consulta).</li>
-                  <li>Estacionamento disponível no píer de embarque no continente.</li>
-                </ul>
-              </div>
-            </div>
             <div class="contact-actions">
               <a class="btn-primary" href="https://wa.me/5500000000000?text=Olá!%20Quero%20ver%20datas%20disponíveis%20para%20me%20hospedar%20no%20Luminosa%20Bay%20Hotel." target="_blank" rel="noopener">
                 Falar no WhatsApp agora
@@ -1688,30 +1887,33 @@
               </a>
             </div>
           </div>
+
+          <!-- Card de mapa ao lado -->
+          <div class="location-map-card reveal reveal-delay-1">
+            <div class="location-map-title">Mapa</div>
+            <h3 class="location-map-heading">Veja Ilhabela no mapa</h3>
+            <p class="location-map-text">
+              Este é um mapa real de Ilhabela, no litoral norte de São Paulo.
+              Use esta área para mostrar onde o hotel do seu cliente está localizado
+              e facilitar a visualização para futuros hóspedes.
+            </p>
+            <div class="location-map-frame">
+              <!-- Mapa real de Ilhabela -->
+              <iframe
+                title="Mapa de Ilhabela"
+                src="https://www.google.com/maps?q=Ilhabela%2C%20SP%2C%20Brasil&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
+
     <!-- FOOTER COM MAPA ILHABELA -->
     <footer>
-      <div class="footer-map">
-        <div class="footer-map-inner">
-          <h3 class="footer-map-title">Veja Ilhabela no mapa</h3>
-          <p class="footer-map-text">
-            Este é um mapa real de Ilhabela, no litoral norte de São Paulo. Você pode usar esta área para mostrar onde o hotel do seu cliente está localizado e facilitar a visualização para futuros hóspedes.
-          </p>
-        </div>
-        <div class="footer-map-frame">
-          <!-- Mapa real de Ilhabela -->
-          <iframe
-            title="Mapa de Ilhabela"
-            src="https://www.google.com/maps?q=Ilhabela%2C%20SP%2C%20Brasil&output=embed"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
-      </div>
-
       <div class="site-footer">
         <div class="footer-inner">
           <div>© 2025 Luminosa Bay Hotel – Mediterranean Seafront Retreat. Todos os direitos reservados.</div>
@@ -1725,26 +1927,31 @@
     </footer>
   </div>
 
+  <!-- Modal genérico para todas as reservas / motor de reservas -->
+  <div class="booking-modal" id="booking-modal" aria-hidden="true">
+    <div class="booking-modal-backdrop"></div>
+    <div class="booking-modal-dialog" role="dialog" aria-modal="true">
+      <button class="booking-modal-close" type="button" data-close-booking-modal aria-label="Fechar aviso de reserva">&times;</button>
+      <h3>Como finalizamos a sua reserva</h3>
+      <p>
+        Nesta etapa você será direcionado para o motor de reservas oficial do hotel ou para o WhatsApp da equipe,
+        onde poderá confirmar datas, valores e formas de pagamento com segurança.
+      </p>
+      <p style="font-size: 12px; color:#6b7280; margin-top:-4px;">
+        Nenhum valor é cobrado automaticamente aqui no site.
+      </p>
+      <div class="booking-modal-actions">
+        <a class="btn-primary" href="https://wa.me/5500000000000?text=Olá!%20Quero%20confirmar%20uma%20reserva%20para%20o%20Luminosa%20Bay%20Hotel." target="_blank" rel="noopener">
+          Continuar pelo WhatsApp
+        </a>
+        <button type="button" class="btn-secondary" data-close-booking-modal>
+          Fechar
+        </button>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // Hero slideshow
-    (function () {
-      const slides = Array.from(document.querySelectorAll('.hero-slide'));
-      let current = 0;
-
-      function showSlide(index) {
-        slides.forEach((slide, i) => {
-          slide.classList.toggle('is-active', i === index);
-        });
-      }
-
-      if (slides.length > 1) {
-        setInterval(() => {
-          current = (current + 1) % slides.length;
-          showSlide(current);
-        }, 7000);
-      }
-    })();
-
     // Fade-up on scroll using IntersectionObserver
     (function () {
       const reveals = document.querySelectorAll('.reveal');
@@ -1799,6 +2006,45 @@
 
       window.addEventListener('scroll', onScroll);
       onScroll();
+    })();
+
+    // Modal de aviso de reserva + barra de reserva do hero
+    (function () {
+      const modal = document.getElementById('booking-modal');
+      const form = document.getElementById('hero-reservation-form');
+      if (!modal || !form) return;
+
+      const backdrop = modal.querySelector('.booking-modal-backdrop');
+      const closeButtons = modal.querySelectorAll('[data-close-booking-modal]');
+
+      function openModal() {
+        modal.classList.add('is-open');
+        document.documentElement.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.remove('is-open');
+        document.documentElement.style.overflow = '';
+      }
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        openModal();
+      });
+
+      closeButtons.forEach((btn) => {
+        btn.addEventListener('click', closeModal);
+      });
+
+      if (backdrop) {
+        backdrop.addEventListener('click', closeModal);
+      }
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+          closeModal();
+        }
+      });
     })();
   </script>
 </body>
